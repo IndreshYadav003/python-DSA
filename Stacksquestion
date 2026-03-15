@@ -1,0 +1,12 @@
+def removedublicates(inputstring):
+  setinput=set()
+  stack=[]
+  string=inputstring
+  for char in string:
+    if char not in setinput:
+      stack.append(char)
+      setinput.add(char)
+  return "".join(stack)
+inputstring="aabbbddd"
+result=removedublicates(inputstring)
+print(result)      
