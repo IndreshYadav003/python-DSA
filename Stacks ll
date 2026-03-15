@@ -1,0 +1,58 @@
+# Stacks implemention using linked list
+# create a node
+class Node :
+    def __init__(self,data):
+        self.data = data
+        self.next=None
+
+class Stack :
+  def __init__(self)->None:
+    self.head=None
+
+  def is_empty(self):
+    return self.head is None
+
+  def push(self, value):
+    newnode=Node(value)
+    newnode.next=self.head
+    self.head=newnode
+
+  def pop(self):
+    if self.is_empty():
+      return None # Or raise an error for an empty stack
+    popped_data = self.head.data
+    self.head=self.head.next
+    return popped_data
+
+  def display(self):
+    elements = []
+    current = self.head # Use a temporary variable to traverse
+    while current is not None:
+      elements.append(str(current.data))
+      current=current.next
+    return " -> ".join(elements) if elements else "Stack is empty"
+
+if __name__=="__main__":
+ s=Stack()
+ s.push(4)
+ s.push(3)
+ s.push(4)
+ print("Stack after pushes:", s.display()) # Use display and print its result
+ print("Popped element:", s.pop()) # Get the popped element
+ print("Stack after first pop:", s.display())
+ print("Popped element:", s.pop())
+ print("Stack after second pop:", s.display())
+ print("Popped element:", s.pop())
+ print("Stack after third pop:", s.display())
+ print("Popped element (empty stack):")
+ print(s.pop()) # Test popping from an empty stack
+/*
+tack after pushes: 4 -> 3 -> 4
+Popped element: 4
+Stack after first pop: 3 -> 4
+Popped element: 3
+Stack after second pop: 4
+Popped element: 4
+Stack after third pop: Stack is empty
+Popped element (empty stack):
+None *\
