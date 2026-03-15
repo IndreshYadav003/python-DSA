@@ -1,0 +1,17 @@
+Stack=[]
+openbrackets=['{','(',]
+closebrackets=['}',')',]
+inputstring='({{}}){}'
+for i in inputstring:
+  if i in openbrackets:
+    Stack.append(i)
+  elif i not in openbrackets and i in closebrackets and len(Stack)!=0:
+    index=closebrackets.index(i)
+    if openbrackets[index]==Stack[len(Stack)-1]:
+      Stack.pop()
+
+if len(Stack)==0:
+  print("valid")
+else:
+  print("Invalid")  
+# valid  
