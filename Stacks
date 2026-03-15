@@ -1,0 +1,33 @@
+# Implementation of Stacks using List or Array
+class Stack:
+  # constractor method of stacks
+  def __init__(self) -> None:
+    self.stack = []
+  #push method of Stacks
+  def push(self, value):
+    self.stack.append(value)
+  #pop method of Stacks
+  def pop(self):
+    if not self.is_empty():
+      return self.stack.pop()
+    return None # Or raise an error for an empty stack
+   #empty  method of Stacks
+  def is_empty(self):
+    return len(self.stack) == 0
+  #peek method of Stacks
+  def peek(self):
+    if not self.is_empty():
+      return self.stack[-1]
+    return None
+  #display method of stacks
+  def display(self):
+    return self.stack
+
+s = Stack()
+s.push(4)
+s.push(9)
+s.push(7)
+print(s.display()) #[4, 9, 7]
+s.pop()
+s.pop()
+s.display() # [4]
